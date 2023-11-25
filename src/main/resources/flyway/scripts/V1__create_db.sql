@@ -11,11 +11,11 @@ CREATE TABLE planet (
 
 CREATE TABLE ticket (
                         id SERIAL PRIMARY KEY,
-                        created_at TIMESTAMP,
-                        client_id INT,
-                        from_planet_id VARCHAR(10),
-                        to_planet_id VARCHAR(10),
-                        FOREIGN KEY (client_id) REFERENCES Client(id),
-                        FOREIGN KEY (from_planet_id) REFERENCES Planet(id),
-                        FOREIGN KEY (to_planet_id) REFERENCES Planet(id)
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        client_id INT NOT NULL ,
+                        from_planet_id VARCHAR(10) NOT NULL,
+                        to_planet_id VARCHAR(10) NOT NULL,
+                        FOREIGN KEY (client_id) REFERENCES client(id),
+                        FOREIGN KEY (from_planet_id) REFERENCES planet(id),
+                        FOREIGN KEY (to_planet_id) REFERENCES planet(id)
 );

@@ -13,18 +13,18 @@ public class Ticket {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "from_planet_id")
+    @JoinColumn(name = "from_planet_id", nullable = false)
     private Planet fromPlanet;
 
     @ManyToOne
-    @JoinColumn(name = "to_planet_id")
+    @JoinColumn(name = "to_planet_id", nullable = false)
     private Planet toPlanet;
 
-    @Column(name = "created_at", columnDefinition = "TIMESTAMP")
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     public int getId() {
